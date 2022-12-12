@@ -9,8 +9,12 @@ player.on('timeupdate',  throttle( e => {
     }, 1000)
     );
 
-player
-.setCurrentTime(localStorage.getItem('videoplayer-current-time'))
-.catch(function (error) {
-    console.error(error)
-});
+let time = localStorage.getItem('videoplayer-current-time');
+if(time === null) time = 0;
+
+
+player.setCurrentTime(time);
+// .catch(function (error) {
+//     console.error(error)
+// });
+
